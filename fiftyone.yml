@@ -1,0 +1,8 @@
+fiftyone:
+  version: ">=0.22.0"
+name: "@jacobmarks/gpt4_vision_plugin"
+version: "1.0.0"
+description: "Use GPT-4 with Vision to chat with images in your dataset!"
+url: "https://github.com/jacobmarks/gpt4-vision-plugin"
+operators:
+  - query_gpt4_vision

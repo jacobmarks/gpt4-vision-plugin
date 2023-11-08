@@ -1,5 +1,7 @@
 ## GPT-4 Vision Plugin
 
+![gpt4_vision](https://github.com/jacobmarks/gpt4-vision-plugin/assets/12500356/722c95d7-4c60-4138-8c9d-c5c26074297b)
+
 ### Plugin Overview
 
 On November 6, 2023, OpenAI made

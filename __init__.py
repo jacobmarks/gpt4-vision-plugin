@@ -1,4 +1,4 @@
-"""GPT-4 Vision plugin.
+"""GPT-4o plugin.
 
 | Copyright 2017-2023, Voxel51, Inc.
 | `voxel51.com <https://voxel51.com/>`_
@@ -27,7 +27,7 @@ def encode_image(image_path):
 
 
 def query_gpt4v(ctx):
-    """Queries the GPT-4 Vision model."""
+    """Queries the GPT-4o model."""
     dataset = ctx.dataset
     sample_ids = ctx.selected
     query_text = ctx.params.get("query_text", None)
@@ -46,7 +46,7 @@ def query_gpt4v(ctx):
         messages_content.append(image_message)
 
     payload = {
-        "model": "gpt-4-vision-preview",
+        "model": "gpt-4o",
         "messages": [{"role": "user", "content": messages_content}],
         "max_tokens": max_tokens,
     }
@@ -77,7 +77,7 @@ class QueryGPT4Vision(foo.Operator):
     def config(self):
         _config = foo.OperatorConfig(
             name="query_gpt4_vision",
-            label="GPT-4 Vision: Chat with your images!",
+            label="GPT-4o: Chat with your images!",
             dynamic=True,
         )
         _config.icon = "/assets/icon_light.svg"
@@ -89,7 +89,7 @@ class QueryGPT4Vision(foo.Operator):
         return types.Placement(
             types.Places.SAMPLES_GRID_ACTIONS,
             types.Button(
-                label="GPT-4 Vision",
+                label="GPT-4o",
                 icon="/assets/icon_dark.svg",
                 dark_icon="/assets/icon_dark.svg",
                 light_icon="/assets/icon_light.svg",
@@ -100,7 +100,7 @@ class QueryGPT4Vision(foo.Operator):
     def resolve_input(self, ctx):
         inputs = types.Object()
         form_view = types.View(
-            label="GPT-4 Vision",
+            label="GPT-4o",
             description="Ask a question about the selected image!",
         )
 
@@ -126,7 +126,7 @@ class QueryGPT4Vision(foo.Operator):
                     "many_samples_warning",
                     view=types.Warning(
                         label=(
-                            f"You have {num_selected} samples selected. GPT-4 Vision"
+                            f"You have {num_selected} samples selected. GPT-4o"
                             " charges per image. Are you sure you want to continue?"
                         )
                     ),
@@ -155,7 +155,7 @@ class QueryGPT4Vision(foo.Operator):
         outputs = types.Object()
         outputs.str("question", label="Question")
         outputs.str("answer", label="Answer")
-        header = "GPT-4 Vision: Chat with your images"
+        header = "GPT-4o: Chat with your images"
         return types.Property(outputs, view=types.View(label=header))
 
 
